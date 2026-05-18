@@ -1,0 +1,52 @@
+========================================================================
+             JOBSEEK - SETUP AND APPLICATION CONFIGURATION
+========================================================================
+
+1. IMPORTANT: CHANGING YOUR APACHE DOCUMENT ROOT (XAMPP SETUP)
+------------------------------------------------------------------------
+This project uses a professional, secure MVC folder structure. To protect 
+the core backend code, only the "public" folder should be accessible to 
+the web browser. 
+
+If you just run the project through localhost/jobseek normally, the pages, 
+styles, and links WILL NOT load correctly.
+
+To make the application work:
+- Open your Apache configuration file (httpd.conf or httpd-vhosts.conf).
+- Change your DocumentRoot and Directory settings to point directly to the 
+  "public" folder inside this project.
+
+Example for XAMPP users:
+DocumentRoot "C:/xampp/htdocs/jobseek/public"
+<Directory "C:/xampp/htdocs/jobseek/public">
+    AllowOverride All
+    Require all granted
+</Directory>
+
+*Make sure to restart your Apache server in XAMPP after making this change!
+
+
+2. HOW THE "APPLY NOW" BUTTON WORKS
+------------------------------------------------------------------------
+You do not need to configure an internal email mailing server for this 
+application. 
+
+When a user clicks the "Apply Now" button on any job listing details 
+page, the system automatically pulls the specific hiring email address 
+saved for that job listing. 
+
+It then safely redirects the user's browser straight to Gmail, opening 
+a brand-new mail draft with the company's recruitment email address 
+already filled out in the "To:" line.
+
+
+3. CORE FEATURES ADDED
+------------------------------------------------------------------------
+- Dynamic Search Engine: The search bar handles advanced live keyword and 
+  location lookups directly from your database using SQL LIKE conditions.
+- Dynamic Card Badges: Job skills and tags entered into the database are 
+  automatically split apart and turned into clean, modern rectangular card 
+  badges that adapt gracefully to any screen size.
+- Form Protection & Fixes: The login and registration forms use layout-level 
+  anti-caching rules and autocomplete blocks to guarantee that when a user 
+  logs out, the browser completely wipes the username and password fields.
